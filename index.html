@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Upload or Camera Capture</title>
+    <style>
+      #nextButton,
+      #retakeButton,
+      #captureButton {
+        display: none; /* Hide these buttons initially */
+      }
+      #preview {
+        max-width: 100%;
+        margin-top: 20px;
+      }
+      #camera {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Upload Image or Capture from Camera</h2>
+
+    <!-- Image Upload Input -->
+    <input
+      type="file"
+      id="uploadImage"
+      accept="image/*"
+      onchange="previewImage(event)"
+    />
+
+    <!-- Option to Capture Image from Camera -->
+    <button id="cameraButton" onclick="openCamera()">
+      Capture from Camera
+    </button>
+
+    <!-- Video element for live camera feed -->
+    <video id="camera" autoplay></video>
+
+    <!-- Capture Image Button -->
+    <button id="captureButton" onclick="captureImage()">Take Photo</button>
+
+    <!-- Retake Image Button -->
+    <button id="retakeButton" onclick="retakeImage()">Retake Photo</button>
+
+    <!-- Preview the selected/captured image -->
+    <img id="preview" src="" alt="Image preview" />
+
+    <!-- Next Button -->
+    <button id="nextButton" onclick="proceed()">Next</button>
+
+    <!-- Canvas to capture the image from video feed (hidden) -->
+    <canvas id="canvas" style="display: none"></canvas>
+
+    <script src="app.js"></script>
+  </body>
+</html>
